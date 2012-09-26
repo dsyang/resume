@@ -4,6 +4,30 @@
 \documentclass[sectioned]{dsyangres}
 \usepackage[left =1in, top = 0.5in, bottom=0.5in]{geometry}
 
+\usepackage{ifxetex}
+\ifxetex
+  \usepackage{fontspec}
+  \setmainfont
+  [ ExternalLocation ,
+  Mapping = tex-text ,
+  Numbers = OldStyle ,
+  Ligatures = {Common,Contextual} ,
+  BoldFont = texgyrepagella-bold.otf ,
+  ItalicFont = texgyrepagella-italic.otf ,
+  BoldItalicFont = texgyrepagella-bolditalic.otf ]
+  {texgyrepagella-regular.otf}
+  % Comment out the previous statement and uncomment the following
+  % line to use the
+  % Linux Libertine font (it has nice lignatures).
+  % Make sure to have the `ttf-linux-libertine` package installed on
+  % Ubuntu.
+  % \setmainfont[Mapping=tex-text, Numbers=OldStyle,
+  % Ligatures={Common,Contextual}]{Linux Libertine O}
+\else
+  \usepackage{tgpagella} % this case we lack lower case numbers,
+  % ligatures and some typographic niceties
+\fi
+
 % the margin option causes section titles to appear to the left of body text
 \textwidth=5.5in % increase textwidth to get smaller right margin
 %\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
@@ -27,18 +51,23 @@
 
 \begin{resume}
 
-%\section{Objective}
-
-%Seeking a summer internship in an industry where I can utilize my strong programming
-%skills and extensive practical background with computer software and hardware.
+%%\section{Objective} Work on interesting problems with interesting people. Getting paid is a plus.
 
 
 \section{Education}
 
 \textbf{Carnegie Mellon University, Pittsburgh PA}
   \begin{itemize}
-    \item Bachelors in Computer Science, QPA: 3.62/4.0 \hfill \textbf{ Spring 2014}
+    \item Bachelors in Computer Science with a Robotics Minor \hfill \textbf{ Spring 2014}
+      \\ QPA: 3.72/4.0
   \end{itemize}
+\textbf{Related Coursework:} \\
+15-411 Compiler Design, 15-381 Artificial
+Intelligence, \\
+16-311 Intro to Robotics, 15-312 Foundations of Programming
+languages,\\
+15-213 Introduction to Computer Systems
+
 %\vspace{-1pt}
 %\textbf{Huron High School, Ann Arbor MI}
 %  \begin{itemize}
@@ -48,24 +77,25 @@
 
 \section{Experience}
 
-\textbf{Software Engineer Intern,}
-  Twilio Inc., San Francisco, CA \hfill \textbf{Summer 2012}
-  \begin{itemize} \itemsep -2pt
-    \item Will be developing software essential to Twilio's core \\
-      infrastructure.
-  \end{itemize}
-
-\textbf{Teaching Assistant} for 15-150 Principles of Functional
- Programming \hfill \textbf{Present}
+\textbf{15-150 Principles of Functional
+ Programming}: Teaching Assistant \hfill \textbf{Present}
  \begin{itemize} \itemsep -2pt
    \item Co-Running Weekly Labs and holding Office Hours for a CS\\
      introductory course taught in Standard ML
-   \item Working with rest of course staff to create, modify, and\\
+   \item Leading rest of course staff to create, modify, and\\
      grade homework/labs/tests for a 250+ student course
  \end{itemize}
 
-\textbf{Software Development Intern,}
-  SRT Solutions, Ann Arbor, MI \hfill \textbf{Summer 2011}
+\textbf{Twilio Inc}: Software Engineering Intern,
+ San Francisco, CA \hfill \textbf{Summer 2012}
+  \begin{itemize} \itemsep -2pt
+    \item Worked on the API team to improve robustness, readability, \\
+      and metrics collection of the python codebase
+    \item Contributed to the open source twilio-python helper library
+  \end{itemize}
+
+\textbf{SRT Solutions}: Software Developer Intern,
+  Ann Arbor, MI \hfill \textbf{Summer 2011}
   \begin{itemize} \itemsep -2pt
     \item Developed fully-functioning Django web application for\\
       managing scholarships
@@ -86,16 +116,15 @@
 
 \section{Projects}
 
-\textbf{Rodney} (https://github.com/dsyang/rodney)
-\hfill \textbf{Spring 2012}
+\textbf{Tau} (https://github.com/srir/tau)
+\hfill \textbf{Summer 2012}
   \begin{itemize} \itemsep -2pt
-    \item Your personal facebook chat secretary. Written in Python.
-    \item Uses APIs from facebook, google and twilio.
-    \item A 24-Hour Hackathon project (http://www.tartanhacks.com/)
-    \item Won the Facebook and Google sponsor awards.
+    \item A clean code-commenting/feedback site for academic use
+    \item A Top-10 project at the 2012 GreylockU Hackathon
+    \item Written in Node.js with MongoDB and Backbone.js
   \end{itemize}
 
-\textbf{FuncionalLibs} (https://github.com/dsyang/FunctionalLibs)
+\textbf{FunctionalLibs} (https://github.com/dsyang/FunctionalLibs)
 \hfill \textbf{Fall 2011}
   \begin{itemize} \itemsep -2pt
     \item a port of a set of libraries from 15-210 \\
@@ -118,38 +147,31 @@
 %  \end{itemize}
 %  \vspace{-1pt}
 
-\textbf{More projects} at http://dsyang92.fulisoft.com
-and http://github.com/dsyang
-
+\textbf{More projects} at http://github.com/dsyang
 
 \section{Skills}
 
 \begin{itemize} \itemsep -2pt
   \item Fluent in Mandarin Chinese
-  \item Proficient with C/C++ (6+ yrs.), Ruby on Rails (3 yrs.),\\
-    PHP (3 yrs.), Python (3 yrs.), Standard ML (2 yrs.), \\Scala, Haskell
-    ( $<$ 1 yr.)
-  \item Familiar with source control tools mercurial, git
+  \item Proficient with Standard ML, Haskell, Python, Ruby, PHP, C/C++
 \end{itemize}
 
 \section{Leadership \\ Activities}
 
-\textbf{Resident Assistant,} CMU Morewood E Tower \hfill \textbf{Present}
+\textbf{Executive Board, Treasurer,} CMU Taiwanese Students
+  Association \hfill \textbf{ Present}
+
+\textbf{Resident Assistant,} CMU Morewood E Tower \hfill \textbf{2012-2013}
   \begin{itemize} \itemsep -2pt
     \item In charge of helping 40 freshmen students have the\\ best
       first year college experience as possible
   \end{itemize}
 
-\textbf{Public Relations Officer,} CMU Taiwanese Students
-  Association \hfill \textbf{ Present}
-
-\textbf{Recording Engineer,} CMU College of Fine Arts \hfill
-\textbf{ Spring 2011}
-  \begin{itemize} \itemsep -2pt
-    \item Setup and record student concerts and recitals (audio/video)
-  \end{itemize}
-
-%\textbf{Volunteer English Teacher,} Tai-Ping Elementary, Taiwan R.O.C \hfill \textbf{ Summer 2009}
+% \textbf{Recording Engineer,} CMU College of Fine Arts \hfill
+% \textbf{ Spring 2011}
+%   \begin{itemize} \itemsep -2pt
+%     \item Setup and record student concerts and recitals (audio/video)
+%   \end{itemize}
 
 \end{resume}
 \end{document}

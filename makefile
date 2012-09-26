@@ -4,7 +4,7 @@ FILE:=$(NAME).tex
 
 
 pdf: $(FILE)
-	pdflatex --jobname="resume-$(SUFFIX)" '\input{$(FILE)}'
+	xelatex --jobname="resume-$(SUFFIX)" '\input{$(FILE)}'
 
 sanitize:
 	rm -f resume-$(SUFFIX).aux
