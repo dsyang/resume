@@ -234,10 +234,10 @@
       \fullline
     }{
       % two addresses
-      \leavevmode\hbox to \textwidth{\@tablebox{\\ \@addressone}\hfil
-                                     \@tableboxcentered{\namefont\@name\\\@email\\\@github\\\@linkedin\\\@phone}\hfil
-				     \@tablebox{\\ \@addresstwo}}\par\par
-      \fullline
+%      \leavevmode\hbox to \textwidth{\@tablebox{\\ \@addressone}\hfil
+%                                     \@tableboxcentered{\namefont\@name\\\@email\\\@github\\\@linkedin\\\@phone}\hfil
+%				     \@tablebox{\\ \@addresstwo}}\par\par
+%      \fullline
     }%
   }%
 \endgroup}
@@ -246,23 +246,23 @@
 % the page with a hline in between
 %
 \def\namefont{\Large\bf}
-\def\@linename{\begingroup
-  \def\\{, }
-  {\namefont\@name}
-  \vskip 2pt
-  \fullline
-  \vskip 2pt
-  % where do you live?
-  \@ifundefined{@addressone}{%
-    % do nothing
-  }{%
-    \leavevmode\hbox to \textwidth
-      {\hfill\vbox{\hbox{\@addressone}
-		   \hbox{\@addresstwo}
-		  }%
-      }\par
-  }
-\endgroup}
+%\def\@linename{\begingroup
+%  \def\\{, }
+%  {\namefont\@name}
+%  \vskip 2pt
+%  \fullline
+%  \vskip 2pt
+%  % where do you live?
+%  \@ifundefined{@addressone}{%
+%    % do nothing
+%  }{%
+%    \leavevmode\hbox to \textwidth
+%      {\hfill\vbox{\hbox{\@addressone}
+%		   \hbox{\@addresstwo}
+%		  }%
+%      }\par
+%  }
+%\endgroup}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % HEADINGS:
@@ -276,7 +276,7 @@
 %
 \let\print@name\relax
 \def\ds@centered{\ifx\print@name\relax\let\print@name\@printcentername\fi}
-\def\ds@line{\ifx\print@name\relax\let\print@name\@linename\fi}
+%\def\ds@line{\ifx\print@name\relax\let\print@name\@linename\fi}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
