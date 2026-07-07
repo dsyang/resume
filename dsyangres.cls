@@ -223,23 +223,10 @@
 \def\@printcentername{\begingroup
   % print the name centered
  \leavevmode\hbox to \textwidth{\hfil\@tablebox{\namefont\@name}\hfil}\par
-%  \leavevmode\hbox to \textwidth{\hfil\@tablebox{\namefont\@name}\hfil}\par
-  \@ifundefined{@addressone}{%
-    % do nothing
-  }{%
-    \@ifundefined{@addresstwo}{
-      % two addresses
-      \leavevmode\hbox to \textwidth{\@tablebox{\\\@email\\\@github\\\@linkedin}\hfil
-				     \@tablebox{\\ \@addressone\\ \hfill \@phone}}\par\par
-      \fullline
-    }{
-      % two addresses
-%      \leavevmode\hbox to \textwidth{\@tablebox{\\ \@addressone}\hfil
-%                                     \@tableboxcentered{\namefont\@name\\\@email\\\@github\\\@linkedin\\\@phone}\hfil
-%				     \@tablebox{\\ \@addresstwo}}\par\par
-%      \fullline
-    }%
-  }%
+  % contact info: github/linkedin at left, email/phone at right
+  \leavevmode\hbox to \textwidth{\@tablebox{\@github\\\@linkedin}\hfil
+                                 \@tableboxright{\@email\\\@phone}}\par
+  \fullline
 \endgroup}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % this is used to print the name and address at the top of
@@ -466,6 +453,7 @@
 %
 \def\@tablebox#1{\begin{tabular}[t]{@{}l@{\extracolsep{\fill}}}#1\end{tabular}}
 \def\@tableboxcentered#1{\begin{tabular}[c]{@{}l@{\extracolsep{\fill}}}#1\end{tabular}}
+\def\@tableboxright#1{\begin{tabular}[t]{@{}r@{}}#1\end{tabular}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % use this to define your name
@@ -536,7 +524,7 @@
 \evensidemargin 0pt
 \marginparwidth 0pt
 \parindent 0pt
-\parskip \baselineskip
+\parskip 0.85\baselineskip
 \setcounter{secnumdepth}{0}
 \def\@listI{\leftmargin\leftmargini
 \topsep 0pt
