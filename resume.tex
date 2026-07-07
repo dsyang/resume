@@ -4,29 +4,19 @@
 \documentclass[sectioned]{dsyangres}
 \usepackage[left =1in, top = 0.5in, bottom=0.5in]{geometry}
 
-\usepackage{ifxetex}
-\ifxetex
-  \usepackage{fontspec}
-  \setmainfont
-  [ ExternalLocation ,
-  Mapping = tex-text ,
+% Tectonic uses the XeTeX engine, so load the real TeX Gyre Pagella OTF
+% via fontspec (same font Overleaf embeds). The classic Type1 tgpagella
+% package silently falls back to Latin Modern under XeTeX, which looks
+% worse -- so fontspec is required here despite the extra dependencies.
+\usepackage{fontspec}
+\setmainfont
+[ Mapping = tex-text ,
   Numbers = OldStyle ,
   Ligatures = {Common,Contextual} ,
   BoldFont = texgyrepagella-bold.otf ,
   ItalicFont = texgyrepagella-italic.otf ,
   BoldItalicFont = texgyrepagella-bolditalic.otf ]
-  {texgyrepagella-regular.otf}
-  % Comment out the previous statement and uncomment the following
-  % line to use the
-  % Linux Libertine font (it has nice lignatures).
-  % Make sure to have the `ttf-linux-libertine` package installed on
-  % Ubuntu.
-  % \setmainfont[Mapping=tex-text, Numbers=OldStyle,
-  % Ligatures={Common,Contextual}]{Linux Libertine O}
-\else
-  \usepackage{tgpagella} % this case we lack lower case numbers,
-  % ligatures and some typographic niceties
-\fi
+{texgyrepagella-regular.otf}
 
 % the margin option causes section titles to appear to the left of body text
 \textwidth=5.5in % increase textwidth to get smaller right margin

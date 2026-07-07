@@ -1,19 +1,11 @@
 NAME:=resume
-SUFFIX:=$(shell date +%F)
 FILE:=$(NAME).tex
 
 
+# Tectonic manages its own aux files in-memory and writes $(NAME).pdf
+# directly, so there are no .aux/.out/.log files to clean up.
 pdf: $(FILE)
-	xelatex --jobname="resume-$(SUFFIX)" '\input{$(FILE)}'
-
-sanitize:
-	rm -f resume-$(SUFFIX).aux
-	rm -f resume-$(SUFFIX).out
-	rm -f resume-$(SUFFIX).log
-	rm -rf auto/
+	tectonic $(FILE)
 
 clean:
-	rm -f resume-$(SUFFIX).aux
-	rm -f resume-$(SUFFIX).out
-	rm -f resume-$(SUFFIX).log
-	rm -f resume-$(SUFFIX).pdf
+	rm -f $(NAME).pdf
