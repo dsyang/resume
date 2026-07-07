@@ -1,0 +1,32 @@
+name: Publish Resume PDF
+
+# The repo is public, so build on every merged PR (plus manual runs).
+on:
+  pull_request:
+    types: [closed]
+  workflow_dispatch:
+
+jobs:
+  build:
+    # Only run for merged PRs; skip PRs that were closed without merging.
+    # workflow_dispatch runs have no pull_request payload, so they pass too.
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install Tectonic
+        run: |
+          curl --proto '=https' --tlsv1.2 -fsSL https://drop-sh.fullyjustified.net | sh
+          sudo mv tectonic /usr/local/bin/
+
+      - name: Build PDF
+        run: make pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resume-pdf
+          path: resume.pdf
+          if-no-files-found: error
