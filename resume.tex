@@ -27,17 +27,17 @@
 \setlength{\jobdateswidth}{0.9in}
 \newlength{\jobheadergap}
 \setlength{\jobheadergap}{0.3in}
+% Narrowed below the width the header/date math alone would give, so
+% bullet lines stay short and easy to read. The header tabular sizes to
+% its own contents (title + gap + date), so narrowing \jobtitlewidth
+% pulls the date column in too -- keeping the header and the bullets
+% below it flush with the same right edge instead of leaving a ragged
+% gap of unused space next to short bullet lines.
 \newlength{\jobtitlewidth}
 \setlength{\jobtitlewidth}{\textwidth}
 \addtolength{\jobtitlewidth}{-\jobdateswidth}
 \addtolength{\jobtitlewidth}{-\jobheadergap}
-
-% Bullet text wraps to a narrower column than the title/date header row,
-% so job entry lines stay short and easy to read even though the header
-% has the full width available for longer titles.
-\newlength{\jobbodywidth}
-\setlength{\jobbodywidth}{\jobtitlewidth}
-\addtolength{\jobbodywidth}{-0.9in}
+\addtolength{\jobtitlewidth}{-0.4in}
 
 \newcommand{\jobheader}[2]{%
   \noindent
@@ -54,9 +54,9 @@
 \newenvironment{jobentry}[2]{%
   \jobheader{#1}{#2}%
   \begingroup
-  \hsize=\jobbodywidth
-  \linewidth=\jobbodywidth
-  \textwidth=\jobbodywidth
+  \hsize=\jobtitlewidth
+  \linewidth=\jobtitlewidth
+  \textwidth=\jobtitlewidth
   \tolerance=9999
   \emergencystretch=3em
   \hyphenpenalty=10000
