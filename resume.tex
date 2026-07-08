@@ -25,13 +25,16 @@
 % \hfill) and bullet text never runs into the date column.
 \newlength{\jobdateswidth}
 \setlength{\jobdateswidth}{0.9in}
+\newlength{\jobheadergap}
+\setlength{\jobheadergap}{0.3in}
 \newlength{\jobtitlewidth}
 \setlength{\jobtitlewidth}{\textwidth}
 \addtolength{\jobtitlewidth}{-\jobdateswidth}
+\addtolength{\jobtitlewidth}{-\jobheadergap}
 
 \newcommand{\jobheader}[2]{%
   \noindent
-  \begin{tabular}[t]{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{\jobtitlewidth}@{}>{\raggedleft\arraybackslash}p{\jobdateswidth}@{}}
+  \begin{tabular}[t]{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{\jobtitlewidth}@{\hspace{\jobheadergap}}>{\raggedleft\arraybackslash}p{\jobdateswidth}@{}}
   #1 & \textbf{#2}
   \end{tabular}\par
 }
