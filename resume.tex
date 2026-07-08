@@ -1,6 +1,6 @@
 % LaTeX file for resume
 \documentclass[sectioned]{dsyangres}
-\usepackage[left =1in, top = 0.5in, bottom=0.5in]{geometry}
+\usepackage[left =1in, top = 0.4in, bottom=0.4in]{geometry}
 
 % Tectonic uses the XeTeX engine, so load the real TeX Gyre Pagella OTF
 % via fontspec (same font Overleaf embeds). The classic Type1 tgpagella
@@ -24,7 +24,7 @@
 % always lines up with the title's first line (instead of a free-floating
 % \hfill) and bullet text never runs into the date column.
 \newlength{\jobdateswidth}
-\setlength{\jobdateswidth}{1.0in}
+\setlength{\jobdateswidth}{0.9in}
 \newlength{\jobtitlewidth}
 \setlength{\jobtitlewidth}{\textwidth}
 \addtolength{\jobtitlewidth}{-\jobdateswidth}
@@ -122,21 +122,21 @@
 \section{Hobby \\ Projects}
 
 \begin{jobentry}{\textbf{code.imdaniel.fyi} (https://code.imdaniel.fyi)}{2025}
-  \begin{itemize} \itemsep -2pt
+  \begin{itemize}
     \item Site of small, static HTML utilities and games, with iOS and Android apps to use them offline.
     \item An exercise in building and shipping products entirely from a phone using the Claude and GitHub mobile apps.
   \end{itemize}
 \end{jobentry}
 
 \begin{jobentry}{\textbf{readcode} (https://github.com/dsyang/readcode)}{2025}
-  \begin{itemize} \itemsep -2pt
+  \begin{itemize}
     \item Code review tool for commenting across multiple commits and making manual edits. Built to review and tweak AI-generated code without an IDE.
     \item Rust + Tauri desktop app for Windows and macOS with auto-update and in-app feedback reporting.
   \end{itemize}
 \end{jobentry}
 
 \begin{jobentry}{\textbf{Buck (build tool)} (https://buck.build)}{2016}
-  \begin{itemize} \itemsep -2pt
+  \begin{itemize}
     \item Added original build rules for Kotlin, unblocking multiple companies such as Uber to use buck.
   \end{itemize}
 \end{jobentry}

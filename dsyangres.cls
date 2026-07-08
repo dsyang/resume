@@ -279,7 +279,7 @@
 \newdimen\resumewidth
 
 \resumewidth=7.0in
-\sectionskip=2.0ex plus 1ex minus -.2ex % values stolen from LaTeX
+\sectionskip=1.6ex plus 1ex minus -.2ex % values stolen from LaTeX
 
 \def\newsectionwidth#1{%
 		     \sectionwidth=#1
@@ -530,7 +530,7 @@
 \topsep 0pt
 \parskip 0pt
 \partopsep 1pt plus 1pt
-\parsep 0pt plus 1pt
+\parsep 2pt plus 1pt minus 1pt
 \itemsep \parsep}
 
 \let\section\@@section
