@@ -18,26 +18,25 @@
 {texgyrepagella-regular.otf}
 
 % the margin option causes section titles to appear to the left of body text
-\textwidth=5.85in % increase textwidth to get smaller right margin
+% Sized so the name/contact header (which spans \textwidth plus the
+% 0.95in section-title gutter) lands flush with a symmetric 1in right
+% margin, matching the geometry package's 1in left margin.
+\textwidth=5.55in
 
 % Fixed-width title/date columns for job & project entries, so the date
 % always lines up with the title's first line (instead of a free-floating
-% \hfill) and bullet text never runs into the date column.
+% \hfill) and bullet text never runs into the date column. The tabular
+% spans the full \textwidth (title + gap + date, no extra slack) so the
+% date column's right edge lands on the same symmetric right margin as
+% the header above it.
 \newlength{\jobdateswidth}
 \setlength{\jobdateswidth}{0.9in}
 \newlength{\jobheadergap}
 \setlength{\jobheadergap}{0.3in}
-% Narrowed below the width the header/date math alone would give, so
-% bullet lines stay short and easy to read. The header tabular sizes to
-% its own contents (title + gap + date), so narrowing \jobtitlewidth
-% pulls the date column in too -- keeping the header and the bullets
-% below it flush with the same right edge instead of leaving a ragged
-% gap of unused space next to short bullet lines.
 \newlength{\jobtitlewidth}
 \setlength{\jobtitlewidth}{\textwidth}
 \addtolength{\jobtitlewidth}{-\jobdateswidth}
 \addtolength{\jobtitlewidth}{-\jobheadergap}
-\addtolength{\jobtitlewidth}{-0.4in}
 
 \newcommand{\jobheader}[2]{%
   \noindent
