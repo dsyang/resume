@@ -279,7 +279,7 @@
 \newdimen\resumewidth
 
 \resumewidth=7.0in
-\sectionskip=2.5ex plus 1ex minus -.2ex % values stolen from LaTeX
+\sectionskip=2.0ex plus 1ex minus -.2ex % values stolen from LaTeX
 
 \def\newsectionwidth#1{%
 		     \sectionwidth=#1
@@ -524,13 +524,13 @@
 \evensidemargin 0pt
 \marginparwidth 0pt
 \parindent 0pt
-\parskip 0.85\baselineskip
+\parskip 0.6\baselineskip
 \setcounter{secnumdepth}{0}
 \def\@listI{\leftmargin\leftmargini
 \topsep 0pt
 \parskip 0pt
-\partopsep 2pt plus 2pt
-\parsep 2pt plus 2pt
+\partopsep 1pt plus 1pt
+\parsep 0pt plus 1pt
 \itemsep \parsep}
 
 \let\section\@@section
