@@ -32,6 +32,13 @@
 \addtolength{\jobtitlewidth}{-\jobdateswidth}
 \addtolength{\jobtitlewidth}{-\jobheadergap}
 
+% Bullet text wraps to a narrower column than the title/date header row,
+% so job entry lines stay short and easy to read even though the header
+% has the full width available for longer titles.
+\newlength{\jobbodywidth}
+\setlength{\jobbodywidth}{\jobtitlewidth}
+\addtolength{\jobbodywidth}{-0.9in}
+
 \newcommand{\jobheader}[2]{%
   \noindent
   \begin{tabular}[t]{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{\jobtitlewidth}@{\hspace{\jobheadergap}}>{\raggedleft\arraybackslash}p{\jobdateswidth}@{}}
@@ -47,9 +54,9 @@
 \newenvironment{jobentry}[2]{%
   \jobheader{#1}{#2}%
   \begingroup
-  \hsize=\jobtitlewidth
-  \linewidth=\jobtitlewidth
-  \textwidth=\jobtitlewidth
+  \hsize=\jobbodywidth
+  \linewidth=\jobbodywidth
+  \textwidth=\jobbodywidth
   \tolerance=9999
   \emergencystretch=3em
   \hyphenpenalty=10000
