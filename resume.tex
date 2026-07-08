@@ -31,7 +31,7 @@
 
 \newcommand{\jobheader}[2]{%
   \noindent
-  \begin{tabular}[t]{@{}>{\raggedright\arraybackslash}p{\jobtitlewidth}@{}>{\raggedleft\arraybackslash}p{\jobdateswidth}@{}}
+  \begin{tabular}[t]{@{}>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}p{\jobtitlewidth}@{}>{\raggedleft\arraybackslash}p{\jobdateswidth}@{}}
   #1 & \textbf{#2}
   \end{tabular}\par
 }
@@ -39,7 +39,8 @@
 % Wraps a job/project entry: prints the title/date header row, then narrows
 % \hsize/\linewidth/\textwidth so the following itemize wraps within the
 % same column as the title (not a minipage, so entries can still break
-% across a page if needed).
+% across a page if needed). Hyphenation is disabled so words wrap whole
+% instead of splitting across lines.
 \newenvironment{jobentry}[2]{%
   \jobheader{#1}{#2}%
   \begingroup
@@ -47,7 +48,9 @@
   \linewidth=\jobtitlewidth
   \textwidth=\jobtitlewidth
   \tolerance=9999
-  \emergencystretch=2em
+  \emergencystretch=3em
+  \hyphenpenalty=10000
+  \exhyphenpenalty=10000
 }{%
   \endgroup
 }
